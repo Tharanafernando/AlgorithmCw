@@ -21,18 +21,23 @@ public class Main {
                     int node1 = Integer.parseInt(parts[0]);
                     int node2 = Integer.parseInt(parts[1]);
                     int weight = Integer.parseInt(parts[2]);
-                    graph.addVertex(node1,node2);
+//                    graph.addVertex(node1);
+//                    System.out.println(node1);
+
                     graph.addEdge(node1,node2,weight);
+
 
 //                    System.out.println(node1 + " " + node2 + " " + weight);
                 }else if(parts.length == 1){
                     int numberOfNodes = Integer.parseInt(parts[0]);
+
                     graph = new Graph(numberOfNodes);
-//                    System.out.println(numberOfNodes);
                 }
 
 
             }
+
+            graph.printGraph();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
