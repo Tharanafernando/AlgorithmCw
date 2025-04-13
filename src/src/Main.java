@@ -24,6 +24,7 @@ public class Main {
 
 //                    System.out.println(node1);
                     graph.addVertex(node1);
+                    graph.addVertex(node2);
                     graph.addEdge(node1,node2,weight);
 
 

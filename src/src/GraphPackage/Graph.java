@@ -21,29 +21,26 @@ public class Graph {
 
     public void addVertex(int v){
         boolean found = false;
-        if (!found) {
-            vertices[v] = v;
-        }
-        int findValue = size-1;
-        for(int i = 0; i < vertices.length; i++){
 
-            if(vertices[i] == v){
-                found = true;
-            }
-
-            if (i==findValue){
-                if (vertices[i] == 0){
-                    vertices[findValue] = vertices[findValue-1]++;
-                }
-            }
-
-
-        }
-
-
-
-
-
+        vertices[v] = v;
+//        boolean found = false;
+//        vertices[v] = v;
+//
+//        int findValue = vertices.length - 1;
+//        for(int i = 0; i < vertices.length; i++){
+//
+//            if(vertices[i] == v){
+//                found = true;
+//            }
+//
+//            if (i==findValue){
+//                if (vertices[i] == 0){
+//                    vertices[findValue] = vertices[findValue-1]++;
+//                }
+//            }
+//
+//
+//        }
 
     }
     public void addEdge(int source,int destination,int weight){
