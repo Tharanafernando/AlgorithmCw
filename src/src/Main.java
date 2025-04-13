@@ -13,7 +13,7 @@ public class Main {
 
         try(BufferedReader br = new BufferedReader(new FileReader(filepath))){
             String line;
-
+            int[] vertexArray;
             while ((line = br.readLine()) != null) {
 
                 String[] parts = line.trim().split("\\s+");
@@ -21,9 +21,9 @@ public class Main {
                     int node1 = Integer.parseInt(parts[0]);
                     int node2 = Integer.parseInt(parts[1]);
                     int weight = Integer.parseInt(parts[2]);
-//                    graph.addVertex(node1);
-//                    System.out.println(node1);
 
+//                    System.out.println(node1);
+                    graph.addVertex(node1);
                     graph.addEdge(node1,node2,weight);
 
 

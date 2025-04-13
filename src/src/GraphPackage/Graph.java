@@ -20,15 +20,29 @@ public class Graph {
 
 
     public void addVertex(int v){
+        boolean found = false;
+        if (!found) {
+            vertices[v] = v;
+        }
+        int findValue = size-1;
+        for(int i = 0; i < vertices.length; i++){
 
-        for (int i = 0; i<size; i++){
+            if(vertices[i] == v){
+                found = true;
+            }
 
-            if (vertices[i] != v){
-                vertices[i] = v;
+            if (i==findValue){
+                if (vertices[i] == 0){
+                    vertices[findValue] = vertices[findValue-1]++;
+                }
             }
 
 
         }
+
+
+
+
 
 
     }
@@ -47,6 +61,14 @@ public class Graph {
                 System.out.print(v+" ");
             }
             System.out.println();
+        }
+
+        System.out.println();
+        System.out.println("Vertices are: ");
+
+        for(int i : vertices){
+
+            System.out.print(i+" ");
         }
     }
 }
