@@ -1,5 +1,7 @@
 package GraphPackage;
 
+import java.util.Stack;
+
 public class Graph {
     int size;
     int[] vertices;
@@ -20,27 +22,9 @@ public class Graph {
 
 
     public void addVertex(int v){
-        boolean found = false;
+
 
         vertices[v] = v;
-//        boolean found = false;
-//        vertices[v] = v;
-//
-//        int findValue = vertices.length - 1;
-//        for(int i = 0; i < vertices.length; i++){
-//
-//            if(vertices[i] == v){
-//                found = true;
-//            }
-//
-//            if (i==findValue){
-//                if (vertices[i] == 0){
-//                    vertices[findValue] = vertices[findValue-1]++;
-//                }
-//            }
-//
-//
-//        }
 
     }
     public void addEdge(int source,int destination,int weight){
@@ -60,12 +44,27 @@ public class Graph {
             System.out.println();
         }
 
-        System.out.println();
-        System.out.println("Vertices are: ");
 
-        for(int i : vertices){
+    }
 
-            System.out.print(i+" ");
+    public void dfs_util(boolean[]visited,int source){
+        visited[source]=true;
+        System.out.print(vertices[source]+" ");
+        for (int i =0; i< size; i++){
+            if(adjacencyMatrix[source][i]!=0 && !visited[i]){
+                dfs_util(visited,i);
+            }
         }
     }
+
+
+    public void dfs(int startingVertex){
+        boolean[] visited = new boolean[size];
+        dfs_util(visited,startingVertex);
+        System.out.println();
+
+    }
+
+
+    
 }

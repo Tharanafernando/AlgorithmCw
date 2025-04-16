@@ -36,6 +36,14 @@ public class Main {
                 }
 
 
+
+
+            }
+            if(graph != null){
+                System.out.println("DFS path starting from node 0: ");
+                graph.dfs(0);
+                System.out.println();
+
             }
 
             graph.printGraph();
