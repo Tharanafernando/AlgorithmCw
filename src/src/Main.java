@@ -41,12 +41,14 @@ public class Main {
             }
             if(graph != null){
                 System.out.println("DFS path starting from node 0: ");
-                graph.dfs(0);
+//                graph.dfs(0);
+                graph.fordFulkerson(0,5);
+//                System.out.println("Max Flow = " + maxFlow);
                 System.out.println();
 
             }
 
-            graph.printGraph();
+//            graph.printGraph();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
