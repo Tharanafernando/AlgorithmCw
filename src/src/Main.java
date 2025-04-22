@@ -4,16 +4,25 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Graph graph = null;
-        String filepath = "benchmarkFiles/bridge_1.txt";
-
+        String filepath = "benchmarkFiles/bridge_4.txt";
+        ArrayList<Integer>nodes = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(filepath))){
             String line;
             int[] vertexArray;
+
+//            Scanner input = new Scanner(System.in);
+//            System.out.println("Enter the value of the source node: ");
+//            int source = input.nextInt();
+//            System.out.println("Enter the value of the target node: ");
+//            int target = input.nextInt();
             while ((line = br.readLine()) != null) {
 
                 String[] parts = line.trim().split("\\s+");
@@ -21,7 +30,8 @@ public class Main {
                     int node1 = Integer.parseInt(parts[0]);
                     int node2 = Integer.parseInt(parts[1]);
                     int weight = Integer.parseInt(parts[2]);
-
+                    nodes.add(node1);
+                    nodes.add(node2);
 //                    System.out.println(node1);
                     graph.addVertex(node1);
                     graph.addVertex(node2);
@@ -42,7 +52,11 @@ public class Main {
             if(graph != null){
                 System.out.println("DFS path starting from node 0: ");
 //                graph.dfs(0);
-                graph.fordFulkerson(0,5);
+                int maxValue = Collections.max(nodes);
+                int minValue = Collections.min(nodes);
+                System.out.println(maxValue);
+                System.out.println(minValue);
+                graph.fordFulkerson(minValue,maxValue);
 //                System.out.println("Max Flow = " + maxFlow);
                 System.out.println();
 
