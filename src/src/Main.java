@@ -1,4 +1,5 @@
 import GraphPackage.Graph;
+import GraphPackage.Node;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -12,17 +13,15 @@ public class Main {
 
     public static void main(String[] args) {
         Graph graph = null;
-        String filepath = "benchmarkFiles/bridge_4.txt";
+        String filepath = "benchmarkFiles/bridge_15.txt";
+        //String filepath = "benchmarkFiles/ladder_1.txt";
+        int numberOfNodes = 0;
+
         ArrayList<Integer>nodes = new ArrayList<>();
         try(BufferedReader br = new BufferedReader(new FileReader(filepath))){
             String line;
-            int[] vertexArray;
 
-//            Scanner input = new Scanner(System.in);
-//            System.out.println("Enter the value of the source node: ");
-//            int source = input.nextInt();
-//            System.out.println("Enter the value of the target node: ");
-//            int target = input.nextInt();
+
             while ((line = br.readLine()) != null) {
 
                 String[] parts = line.trim().split("\\s+");
@@ -32,15 +31,17 @@ public class Main {
                     int weight = Integer.parseInt(parts[2]);
                     nodes.add(node1);
                     nodes.add(node2);
-//                    System.out.println(node1);
+
+
+
                     graph.addVertex(node1);
                     graph.addVertex(node2);
                     graph.addEdge(node1,node2,weight);
 
 
-//                    System.out.println(node1 + " " + node2 + " " + weight);
+
                 }else if(parts.length == 1){
-                    int numberOfNodes = Integer.parseInt(parts[0]);
+                    numberOfNodes = Integer.parseInt(parts[0]);
 
                     graph = new Graph(numberOfNodes);
                 }
@@ -51,18 +52,21 @@ public class Main {
             }
             if(graph != null){
                 System.out.println("DFS path starting from node 0: ");
-//                graph.dfs(0);
+
                 int maxValue = Collections.max(nodes);
                 int minValue = Collections.min(nodes);
+                int destination = numberOfNodes-1;
                 System.out.println(maxValue);
                 System.out.println(minValue);
-                graph.fordFulkerson(minValue,maxValue);
-//                System.out.println("Max Flow = " + maxFlow);
+                //graph.fordFulkerson(0,destination);
+                graph.edmondsKarp(0,destination);
+
                 System.out.println();
+               // graph.printGraph();
 
             }
 
-//            graph.printGraph();
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
