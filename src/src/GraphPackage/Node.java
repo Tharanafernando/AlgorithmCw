@@ -1,46 +1,40 @@
 package GraphPackage;
 
 public class Node {
-    int destination; // target node
-    int weight; // original capacity
+
+    public int destination; // target node
+    int capacity; // original capacity
     int flow; // current flow
     Node reverse;
 
 
-    Node(int destination, int weight) {
+    Node(int destination, int capacity) {
         this.destination = destination;
-        this.weight = weight;
+        this.capacity = capacity;
         this.flow = 0;
 
 
+
     }
 
 
-    public int getWeight() {
-        return weight;
+
+    public int residualCapacity() {
+      return capacity - flow;
     }
 
-    public int getDestination() {
-        return destination;
-    }
 
-    public int getFlow() {
-        return flow;
+    public void augment(int bottle) {
+        flow+=bottle;
+        reverse.flow -= bottle;
     }
-
-    public void setDestination(int destination) {
-        this.destination = destination;
-    }
-    public void setFlow(int flow) {
-        this.flow = flow;
-    }
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
 
     public String toString(){
-        return String.format("%d(w=%d)", destination, weight);
+        return String.format("%d(w=%d)", destination, capacity);
     }
+
+
+
+
 
 }
