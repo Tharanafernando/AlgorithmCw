@@ -1,3 +1,9 @@
+/*
+ Name :  Tharana Sandul Fernando
+ UOW  :   w2051566    ,    IIT  :  20230147
+
+*/
+
 package FileReaderPackage;
 
 import GraphPackage.Graph;

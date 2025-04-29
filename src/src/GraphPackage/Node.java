@@ -1,10 +1,16 @@
+/*
+ Name :  Tharana Sandul Fernando
+ UOW  :   w2051566    ,    IIT  :  20230147
+
+*/
+
 package GraphPackage;
 
 public class Node {
 
-    public int destination; // target node
-    int capacity; // original capacity
-    int flow; // current flow
+    public int destination;
+    int capacity;
+    int flow;
     Node reverse;
 
 
